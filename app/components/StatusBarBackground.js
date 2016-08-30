@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
   statusBarBackground: {
     height: 20,
-    backgroundColor: "grey"
+    backgroundColor: "dodgerblue"
   }
 })
 

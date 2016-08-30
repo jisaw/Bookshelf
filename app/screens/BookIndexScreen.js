@@ -5,7 +5,8 @@ import {
   Text,
   View,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  Navigator
 } from 'react-native';
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground'
@@ -24,7 +25,7 @@ class BookIndexScreen extends Component {
     console.log(this.props.navigator)
     return (
       <ViewContainer>
-      <StatusBarBackground style={{backgroundColor: "skyblue"}} />
+      <StatusBarBackground />
         <ListView
           style={styles.bookListView}
           dataSource={this.state.bookDataSource}
@@ -46,7 +47,7 @@ class BookIndexScreen extends Component {
   _navigateToBookShow(book) {
     this.props.navigator.push({
       ident: "BookShow",
-      book: book
+      book: book,
     })
   }
 }
