@@ -14,7 +14,7 @@ import HeadingTitle from '../components/HeadingTitle'
 import _ from 'lodash'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-class BookIndexScreen extends Component {
+class BookLoansScreen extends Component {
   constructor(props) {
     super(props)
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2})
@@ -23,15 +23,16 @@ class BookIndexScreen extends Component {
     }
   }
   render() {
-    console.log(this.props.navigator)
     return (
       <ViewContainer>
       <StatusBarBackground />
-      <HeadingTitle title="My Library" />
-        <ListView
-          style={styles.bookListView}
-          dataSource={this.state.bookDataSource}
-          renderRow={(book) => { return this._renderBookRow(book)}} />
+      <HeadingTitle title="Loaned Books"/>
+        <View style={{backgroundColor: "slategrey"}}>
+          <ListView
+            style={styles.bookListView}
+            dataSource={this.state.bookDataSource}
+            renderRow={(book) => { return this._renderBookRow(book)}} />
+        </View>
       </ViewContainer>
     )
   }
@@ -76,9 +77,8 @@ const styles = StyleSheet.create({
     width: 20,
   },
   bookListView: {
-    // marginTop: 100,
     flex: 1,
-    height: 587
+    height: 587,
   },
   welcome: {
     fontSize: 20,
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = BookIndexScreen
+module.exports = BookLoansScreen

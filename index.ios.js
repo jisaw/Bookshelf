@@ -38,7 +38,7 @@ class Bookshelf extends Component {
           iconName="dollar"
           onPress={() => this.setState({selectedTab: "loanedBooks"})}>
           <AppNavigator
-            initialRoute={{ident: "BookIndex"}}/>
+            initialRoute={{ident: "BookLoans"}}/>
         </Icon.TabBarItemIOS>
 
         <Icon.TabBarItemIOS
@@ -47,9 +47,8 @@ class Bookshelf extends Component {
           iconName="barcode"
           onPress={() => this.setState({selectedTab: "scanBook"})}>
           <AppNavigator
-            initialRoute={{ident: "BookShow",
-                            book: {title: "Love In The City", author: "Ellen Pao", yearPublished: 1972}}}/>
-        </Icon.TabBarItemIOS>
+            initialRoute={{ident: "BookScan"}}/>
+          </Icon.TabBarItemIOS>
 
       </TabBarIOS>
     )

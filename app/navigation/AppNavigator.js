@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import BookIndexScreen from '../screens/BookIndexScreen'
 import BookShowScreen from '../screens/BookShowScreen'
+import BookLoansScreen from '../screens/BookLoansScreen'
+import BookScanScreen from '../screens/BookScanScreen'
 
 
 const books = [
@@ -57,7 +59,8 @@ _renderScene(route, navigator) {
     case "BookIndex":
       return (
         <BookIndexScreen
-          {...globalNavigatorProps} books={books}/>
+          {...globalNavigatorProps}
+          books={books}/>
       )
 
     case "BookShow":
@@ -66,7 +69,18 @@ _renderScene(route, navigator) {
         {...globalNavigatorProps}
         book={route.book} />
       )
-
+    case "BookLoans":
+            return (
+              <BookLoansScreen
+              {...globalNavigatorProps}
+              books={books}/>
+            )
+    case "BookScan":
+      return (
+        <BookScanScreen
+        {...globalNavigatorProps}/>
+      )
+      
     default:
     return (
       <Text>{"You messed something up"}</Text>
