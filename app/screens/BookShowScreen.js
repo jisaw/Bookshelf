@@ -35,17 +35,19 @@ class BookShowScreen extends Component {
     console.log(this.props.navigator)
     var book = this.props.book
     return (
-      <ViewContainer>
+      <View style={styles.mainView}>
       <StatusBarBackground />
-      <View style={{backgroundColor: bookBackgroundColor, height: 1000, alignItems: "center"}}>
+      <View style={styles.dataView}>
         <Text style={styles.bookTitle}>{book.title}</Text>
         <Text style={styles.bookAuthor}>Author: {book.author}</Text>
         <Text style={styles.bookYearPublished}>Published: {book.yearPublished}</Text>
+        </View>
+        <View style={styles.popView}>
         <TouchableOpacity onPress={() => this.props.navigator.pop()} >
           <Icon name="chevron-left" size={30} color={"red"} style={styles.popButton}/>
         </TouchableOpacity>
+        </View>
       </View>
-      </ViewContainer>
     )
   }
 }
@@ -54,19 +56,19 @@ const styles = StyleSheet.create({
 
   mainView:{
     flex: 1,
-    // justifyContent: "center",
-    alignItems: "center",
-    height: 1000,
-    backgroundColor: "cornsilk",
+    backgroundColor: "cornsilk"
   },
 
   bookTitle: {
+    marginTop: 20,
     fontSize: 40,
     textAlign: 'center',
     margin: 10,
     fontWeight: 'bold',
   },
-
+  dataView : {
+    flex: 0.8,
+  },
   bookAuthor: {
     fontSize: 20,
     textAlign: 'center',
@@ -78,10 +80,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  popView: {
+    flex: 0.2,
+    justifyContent: "center",
+    alignItems: "flex-start",
+    flexDirection: "row"
+  },
   popButton: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "flex-start"
+    textAlign: "center",
+    marginTop: 20
   }
 });
 
